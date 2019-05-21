@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>Rightway{{ title }}</title>
+    {% else %}
+    <title>Rightway</title>
+    {% endif %}
+</head>
+<body>
+
+    <header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+    <div class="container">
+      <h3 style="color:white">Rightway.com  </h3>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="{% url 'blog-home' %}"> Home </a>
+          <a class=" nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+
+        </div>
+
+
+
+
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav">
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+
+
+
+
+        </div>
+        </div>
+    </nav>
+    </header>
+
+
+
+
+
+
+    <main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8">
+       {% if messages %}
+
+            {% for message in messages %}
+                <div class="alert alert-{{ messages.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+        {% endif %}
+      {% block content %}{% endblock %}
+    </div>
+<div class="col-md-4">
+      <div class="content-section">
+        <h3>What's Trending?</h3>
+        <p class='text-muted'>Let's read some trends and buzz!
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Cricket News :
+            <a href="https://www.cricbuzz.com">Cricket Buzz!</a>
+            </li>
+            <li class="list-group-item list-group-item-light">Football News :
+                 <a href="https://onefootball.com/">Football Buzz!</a>
+            </li>
+          <li class="list-group-item list-group-item-light">Social Buzz :
+                 <a href="https://www.buzzfeed.com/tag/india">Buzzfeed India!</a>
+            </li>
+           <li class="list-group-item list-group-item-light">Scoopwhoop! :
+                 <a href="https://www.scoopwhoop.com/">Scoopwhoop!</a>
+            </li>
+          <li class="list-group-item list-group-item-light">News :
+                 <a href="https://aajtak.intoday.in/news.html">Aaj Tak!</a>
+            </li>
+          <li class="list-group-item list-group-item-light">Movie Knowledge! :
+                 <a href="https://www.imdb.com/">IMDB</a>
+            </li>
+
+
+          </ul>
+        </p>
+      </div>
+    </div>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Social Footer, Colour Matching Icons -->
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- // -->
+<div class="container">
+<h3>Follow Us: </h3>
+    <hr>
+        <div class="text-center center-block">
+            <p class="txt-railway">Rightway © 2019. All rights reserved.</p>
+            <br />
+                <a href="https://www.facebook.com/akashuuuu"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/freakinroll"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:adoreakash99@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+    <hr>
+</div>
+
+<br />
+
+<!-- Social Footer, Single Coloured -->
+<!-- Include Font Awesome Stylesheet in Header -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- // -->
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
